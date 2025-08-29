@@ -1,1 +1,1 @@
-# crew_template
+Template for setting up Crews to work with various LLMs.
