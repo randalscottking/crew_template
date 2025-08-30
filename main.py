@@ -1,5 +1,6 @@
 import os
 
+from crewai import Agent, Crew, Process, Task
 from crewai_tools import (
     CSVSearchTool,
     DirectoryReadTool,
@@ -9,33 +10,32 @@ from crewai_tools import (
 )
 from dotenv import load_dotenv
 
-from crewai import Agent, Crew, Process, Task
-
+# Use .env file for llm credentials
 load_dotenv()
 
 os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
 os.environ["OPENAI_MODEL_NAME"] = os.getenv("OPENAI_MODEL_NAME")
 
-# Tools (https://docs.crewai.com/en/concepts/tools#available-crewai-tools)
+# Define Tools (https://docs.crewai.com/en/concepts/tools#available-crewai-tools)
 docs_tool = DirectoryReadTool(directory="./blog-posts")
 file_tool = FileReadTool()
 search_tool = SerperDevTool()
 csv_search_tool = CSVSearchTool()
 rag_tool = RagTool()
 
-# Agents
+# Create Agents
 agent1 = Agent(role="", goal="", backstory="", verbose=False, tools=[])
 
 agent2 = Agent(role="", goal="", backstory="", verbose=False, tools=[])
 
 agent3 = Agent(role="", goal="", backstory="", verbose=False, tools=[])
 
-# Tasks
+# Create Tasks
 task1 = Task(name="", description="", tools=[])
 
 task2 = Task(name="", description="", tools=[])
 
-# Crew
+# Create Crew
 crew = Crew(
     agents=[agent1, agent2, agent3],
     tasks=[task1, task2],
@@ -45,6 +45,7 @@ crew = Crew(
     manager_llm="gpt-4o",
 )
 
+# UI
 print("Welcome!")
 question = input("What is your question? ")
 
