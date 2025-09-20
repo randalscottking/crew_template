@@ -94,45 +94,45 @@ class CrewManager:
 
 
 def main():
-    """Main function to demonstrate CrewManager usage with example agents and tasks."""
+    """Main function for CrewManager usage with agents and tasks."""
     crew_manager = CrewManager()
 
     # Create agents
     crew_manager.create_agent(
-        role="Research Analyst",
-        goal="Gather comprehensive information on given topics",
-        backstory="You are an experienced research analyst with expertise in data collection and analysis",
+        role="Agent1",
+        goal="Describe Goal",
+        backstory="Write the backstory for Agent1",
         tools=[crew_manager.tools["search_tool"], crew_manager.tools["file_tool"]],
-        verbose=False
+        verbose=False,
     )
 
     crew_manager.create_agent(
-        role="Content Writer",
-        goal="Create engaging and informative content based on research findings",
-        backstory="You are a skilled content writer who can transform complex information into clear, readable content",
+        role="Agent2",
+        goal="Describe Goal",
+        backstory="Write the backstory for Agent2",
         tools=[crew_manager.tools["file_tool"]],
-        verbose=False
+        verbose=False,
     )
 
     crew_manager.create_agent(
-        role="Quality Reviewer",
-        goal="Review and ensure the quality and accuracy of all deliverables",
-        backstory="You are a meticulous quality reviewer with an eye for detail and accuracy",
+        role="Agent3",
+        goal="Describe Goal",
+        backstory="Write the backstory for Agent3",
         tools=[crew_manager.tools["file_tool"]],
-        verbose=False
+        verbose=False,
     )
 
     # Create tasks
     crew_manager.create_task(
-        name="Research Task",
-        description="Conduct thorough research on the user's question and gather relevant information",
-        tools=[crew_manager.tools["search_tool"], crew_manager.tools["rag_tool"]]
+        name="Task1",
+        description="Give a brief description",
+        tools=[crew_manager.tools["search_tool"], crew_manager.tools["rag_tool"]],
     )
 
     crew_manager.create_task(
-        name="Content Creation Task",
-        description="Create comprehensive content based on the research findings and user requirements",
-        tools=[crew_manager.tools["file_tool"]]
+        name="Task2",
+        description="Give a brief descriptiont",
+        tools=[crew_manager.tools["file_tool"]],
     )
 
     # Create and run crew
